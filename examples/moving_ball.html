@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <style> body {padding: 0; margin: 0; background: #000;} canvas { border: 1px dotted #ccc; } </style>
+  </head>
+  <body>
+
+
+
+  	<!--   Engine Files   -->
+      <script src="../engine/debug.js"></script>
+    	<script src="../engine/canvas.js"></script>
+      <script src="../engine/ctx.js"></script>
+      <script src="../engine/mouse.js"></script>
+    <!-- End Engine Files -->
+    <script>
+      var canvas,
+          myCircle;
+
+      function setup() {
+        canvas = new createCanvas(800,600, "myID");
+        myCircle = circle(100,100,20); //position x, position y, and radius
+
+        myCircle.onclick = function () {
+          myCircle.x += 50;
+        }
+      }
+
+      function update() {
+       myCircle.y += 2;
+       
+       if (myCircle.y > 800) {
+           myCircle.y = 0;
+       }
+    }
+
+      function draw() {
+        fill("red");
+      }
+    </script>
+  </body>
+</html>
