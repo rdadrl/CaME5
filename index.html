@@ -1,21 +1,36 @@
+<!--
+ *                  CaME5
+ *  Authors: Arda Ntourali and Sarp Soyal
+ *
+ *  name        : index.html
+ *  type        : core  
+ *  description :
+ *      Example entry point for CaME5 Projects
+ *-->
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0; background: #000;} canvas { border: 1px dotted #ccc; } </style>
+    <style> body {padding: 0; margin: 0; background: #000;} canvas { position: absolute; left: 0; right: 0; border: 1px dotted #ccc; margin: auto; } </style>
   </head>
   <body>
-
+    <img id="tileset" src="examples/sarps_tileset.jpg" style="display: none;">
 
 
   	<!--   Engine Files   -->
-      <script src="engine/debug.js"></script>
-    	<script src="engine/canvas.js"></script>
-      <script src="engine/ctx.js"></script>
-      <script src="engine/mouse.js"></script>
+      <script src="src/core/debug.js"></script>
+
+      <script src="new_src/core/state.js"></script>
+    	<script src="new_src/core/canvas.js"></script>
+      <script src="new_src/core/tick.js"></script>
+      <script src="new_src/core/objects.js"></script>
+
+      <script src="new_src/core/objects.js"></script>
+      <script src="src/hid/mouse.js"></script>
+      <script src="src/tilemap/tilemap.js"></script>
     <!-- End Engine Files -->
-    <script>
-      DEBUG.log("#Input your source code here!");
-    </script>
+    
+    <!-- Main Game Script Below -->
+    <script src="sketch.js"></script>
   </body>
 </html>
