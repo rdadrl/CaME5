@@ -34,38 +34,38 @@ function drawObjects() {
 }
 
 function remove (obj) {
-	var index = objects.findIndex(x => x.id == obj.id);
-	objects.splice(index, index + 1);
-	DEBUG.log("CTX> remove()> #Removed object from objects with id: " + obj.id);
+	var index = CaME5_.objects.list.findIndex(x => x.id == obj.id);
+	CaME5_.objects.list.splice(index, index + 1);
+	console.info("Removed object from objects with id: " + obj.id);
 }
 
 function ZtoUpper(obj){
-	var index = objects.findIndex(x => x.id == obj.id);
-	objects.splice(index, index + 1);
-	objects.push(obj);
-	DEBUG.log("CTX> ZtoUpper()> #Moved object to top with id: " + obj.id);
+	var index = CaME5_.objects.list.findIndex(x => x.id == obj.id);
+	CaME5_.objects.list.splice(index, index + 1);
+	CaME5_.objects.list.push(obj);
+	console.info("Moved object to top with id: " + obj.id);
 }
 
 function ZtoLower(obj){
-	var index = objects.findIndex(x => x.id == obj.id);
-	objects.splice(index, index + 1);
-	objects.unshift(obj);
-	DEBUG.log("CTX> ZtoLower()> #Moved object to bottom with id: " + obj.id);
+	var index = CaME5_.objects.list.findIndex(x => x.id == obj.id);
+	CaME5_.objects.list.splice(index, index + 1);
+	CaME5_.objects.list.unshift(obj);
+	console.info("Moved object to bottom with id: " + obj.id);
 }
 
 function Zby(obj, vol = 0) {
-	var index = objects.findIndex(x => x.id == obj.id);
+	var index = CaME5_.objects.list.findIndex(x => x.id == obj.id);
 	remove(obj);
 
-	objects.splice(index + vol, 0, obj);
+	CaME5_.objects.list.splice(index + vol, 0, obj);
 }
 
 /* - End Object Operations - */
 
 function text(text, x, y, maxw = 0, color = "fff", state = true) {
-	CaME5_.objects.id++;
+	CaME5_.objects.last_id++;
 	CaME5_.objects.list.push({
-		id: CaME5_.objects.id,
+		id: CaME5_.objects.last_id,
 		state: state,
 		type: "text",
 		text: text,
@@ -84,9 +84,9 @@ function drawText(obj) {
 }
 
 function rect(x, y, w, h, color = "fff", state = true) {
-	CaME5_.objects.id++;
+	CaME5_.objects.last_id++;
 	CaME5_.objects.list.push({
-		id: CaME5_.objects.id,
+		id: CaME5_.objects.last_id,
 		state: state,
 		type: "rect",
 		color: color,
@@ -104,9 +104,9 @@ function drawRect(obj) {
 }
 
 function circle(x, y, r, color = "fff", state = true) {
-	CaME5_.objects.id++;
+	CaME5_.objects.last_id++;
 	CaME5_.objects.list.push({
-		id: CaME5_.objects.id,
+		id: CaME5_.objects.last_id,
 		state: state,
 		type: "circle",
 		color: color,

@@ -47,9 +47,14 @@ function createCanvas (w = 800, h = 600, id = 0) {
 
 	// If mouse library is present, attach events to the canvas
 	if (typeof getCursorPosition === "function") {
-		this.canvas.addEventListener("mousemove", getCursorPosition, false);
-		this.canvas.addEventListener("click", clickHandler, false);
-		console.info("HID> Mouse Library is present. Adding mouse event handlers to the canvas");
+		if (typeof drawObjects === "function") {
+			this.canvas.addEventListener("mousemove", getCursorPosition, false);
+			this.canvas.addEventListener("click", clickHandler, false);
+			console.info("Mouse Library is present. Adding mouse event handlers to the canvas");
+		}
+		else {
+			console.warn("Although Mouse Library is present, CaME5 were unable to activate it due Core.objects being missing. Manually attach events to the canvas if necessary.");
+		}
 	}
 
 	//The Context2D element holds the canvas inside it too. This is for the public functions to reach ctx.
