@@ -3,6 +3,5 @@
   <br>
   CanvasMadeEasy - A fully functional canvas engine
 </p>
-<hr>
 <h1>About</h1>
 <p>CaME5 is a HTML5 Canvas helper framework simplifying every task and adding various great functions.</p>
